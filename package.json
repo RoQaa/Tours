@@ -1,0 +1,19 @@
+{
+  "name": "tours",
+  "version": "1.0.0",
+  "description": "Tours System for Create-Update-Delete-Retrive",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"nodemon server.js"
+  },
+  "author": "FArouk",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.18.3",
+    "mongoose": "^8.2.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.0"
+  }
+}
