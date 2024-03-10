@@ -13,7 +13,12 @@ if (process.env.NODE_ENV === 'development') {
   
   app.use(express.json());
  // app.use(express.static(`${__dirname}/public`));
-
+app.get('/',(req,res)=>{
+  res.status(200).json({
+    status:true,
+    message:"Welcom TO Our Appllication u connected Successfully"
+  })
+})
  app.use('/testTours',tourRouter)
  
 module.exports=app;
