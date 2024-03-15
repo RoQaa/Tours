@@ -1,20 +1,19 @@
-const Tour=require('../models/tourModel')
-
-exports.getAllTours=async(req,res)=>{
-    try{
-        const tours=await Tour.find();
-        res.status(200).json({
-            status:true,
-            message:"Data Retrived Sucess",
-            data:tours
-        })
+const Tour = require('../models/tourModel');
+const AppError = require('../utils/AppError');
+const { catchAsync } = require('../utils/catchAsync');
 
 
-    }catch(err){
-        res.status(404).json({
-            status:false,
-            message:"Data n't Found",
-            error:err
-        })
+exports.getAllTours = catchAsync(async (req, res,next) => {
+
+    const tours = await Tour.find();
+    if(tours.length===0){
+        return new AppError(`There's no Data to Retrive`,404)
     }
-}
+    res.status(200).json({
+        status: true,
+        message: "Data Retrived Sucess",
+        data: tours
+    })
+next();
+
+})
